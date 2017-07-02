@@ -1,0 +1,75 @@
+﻿@using RASmartOffice.Core.Models
+@model MeetingRoomSummary
+
+<section class="content-header">
+    <h1>
+        Meeting Room
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-gear"></i>Admin Management</a></li>
+        <li class="active">Meeting Room</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row"></div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <i class="fa fa-list"></i><h3 class="box-title">Meeting Room</h3>
+                </div>
+                <div class="box-body admin-content">
+                    @Html.Partial("_MeetingRoomMgmtPartial", Model.MeetingRooms)
+                </div>
+                <div class="box-footer">
+                    <a href="javascript:void(0)" class="btn btn-primary pull-right mr-add-btn"><i class="fa fa-plus"></i> Add</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row addMeetingRoomDiv">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Add Meeting Room</h3>
+                </div>
+                <div class="box-body">
+                    <label class="col-sm-1 control-label redAsteriskBefore">Name</label>
+                    <input type="text" class="col-sm-11 form-control mr-name" />
+                </div>
+                <div class="box-body">
+                    <label class="col-sm-1 control-label redAsteriskBefore">Description</label>
+                    <input type="text" class="col-sm-11 form-control mr-description" />
+                </div>
+                <div class="box-body">
+                    <label class="col-sm-1 control-label redAsteriskBefore">Floor</label>
+                    <input type="text" class="col-sm-11 form-control mr-floor" />
+                </div>
+                <div class="box-body">
+                    <label class="col-sm-1 control-label redAsteriskBefore">Capacity</label>
+                    <input type="text" class="col-sm-11 form-control mr-capacity" />
+                </div>
+                <div class="box-footer">
+                    <button type="button" class="btn btn-primary pull-right template-btn mr-save-btn"> Save</button>
+                    <button type="button" class="btn btn-primary pull-right template-btn mr-cancel-btn"> Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Scripts/meetingroom/mrmgmt.js"></script>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            initCommonDataTable('#MeetingRoomDataTbl');
+            bindMeetingRoomMgmtEvent();
+        });
+
+    </script>
+}
+
+

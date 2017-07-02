@@ -1,0 +1,33 @@
+﻿
+@using RASmartOffice.Core.Models
+@model List<MeetingRoomInfo>
+
+<table id="MeetingRoomDataTbl" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Floor</th>
+            <th>Capacity</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var meertingRoom in Model)
+        {
+            <tr data-mrid="@meertingRoom.ID" data-mrname="@meertingRoom.Name" data-mrdescription="@meertingRoom.Description" data-mrfloor="@meertingRoom.Floor" data-mrcapacity="@meertingRoom.Capacity" >
+                <td>@meertingRoom.Name</td>
+                <td>@meertingRoom.Description</td>
+                <td>@meertingRoom.Floor</td>
+                <td>@meertingRoom.Capacity</td>
+                <td>
+                    <a href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="Edit" class="btn btn-xs btn-default editAction"><i class="fa fa-edit"></i> </a>
+                    <a href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="Delete" class="btn btn-xs btn-default deleteAction"><i class="fa fa-remove"></i> </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

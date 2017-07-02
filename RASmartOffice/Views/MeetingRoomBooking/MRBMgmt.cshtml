@@ -1,0 +1,78 @@
+﻿
+@using RASmartOffice.Core.Models
+@model MRBSummary
+
+@{
+    LoginUser loginUser = (LoginUser)Session["CurrentLoginUser"];
+}
+<section class="content-header">
+    <h1>
+        Meeting Room Booking
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-gear"></i>Booking Management</a></li>
+        <li class="active">Meeting Room Booking</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row"></div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <i class="fa fa-list"></i><h3 class="box-title">Meeting Room Booking</h3>
+                </div>
+                <div class="box-body admin-content">
+                    @Html.Partial("_MRBMgmtPartial", Model.MeetingRoomBookings)
+                </div>
+                <div class="box-footer">
+                    <a href="javascript:void(0)" class="btn btn-primary pull-right mrb-add-btn"><i class="fa fa-plus"></i> Add</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row bookMeetingRoomDiv">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Book Meeting Room</h3>
+                </div>
+                <div class="box-body">
+                    <label class="col-sm-2 control-label redAsteriskBefore">Location</label>
+                    @Html.DropDownList("MeetingRoomId", Model.MeetingRooms as List<SelectListItem>, "--Select One--", new { @class = "col-sm-10 form-control" })
+                </div>
+                <div class="box-body">
+                    <label class="col-sm-2 redAsteriskBefore">Title</label>
+                    <input type="text" class="col-sm-10 booking-title" />
+                </div>
+                <div class="box-body">
+                    <label class="col-sm-2 redAsteriskBefore">Description</label>
+                    <input type="text" class="col-sm-10 booking-description" />
+                </div>
+                <div class="box-body">
+                    <label class="col-sm-2 redAsteriskBefore">Date Time Range</label>
+                    <input type="text" id="BookingDateTimeRange" class="col-sm-10 booking-date-time-range" />
+                </div>
+                <div class="box-footer">
+                    <button type="button" class="btn btn-primary pull-right template-btn mrb-save-btn"> Save</button>
+                    <button type="button" class="btn btn-primary pull-right template-btn mrb-cancel-btn"> Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Scripts/meetingroombooking/mrbmgmt.js"></script>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#BookingDateTimeRange').daterangepicker({timePicker: true, timePickerIncrement: 5, format: 'MM/DD/YYYY h:mm A'});
+            initCommonDataTable('#MRBDataTbl');
+            bindMeetingRoomBookingEvent();
+        });
+
+    </script>
+}

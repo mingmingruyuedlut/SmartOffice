@@ -1,0 +1,53 @@
+﻿@using RASmartOffice.Core.Models
+@model LoginInfo
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="login-logo">
+    <a href="/Home/Index">
+        <img alt="logo" src="~/images/photo4.jpg" width="360" height="200" />
+    </a>
+</div><!-- /.login-logo -->
+<div class="login-box-body">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="account-login-panel">
+            <div class="form-group has-feedback">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Username" })
+                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group has-feedback">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 no-padding-lr">
+                <button type="button" class="btn btn-primary btn-flat register-btn">Register</button>
+            </div> <!-- /.col -->
+            <div class="col-xs-4"></div> <!-- /.col -->
+            <div class="col-xs-4 no-padding-lr">
+                <button type="submit" class="btn btn-primary btn-block btn-flat login-submit-btn">Login</button>
+            </div><!-- /.col -->
+        </div>
+    }
+    <br />
+    <p class="login-footer">&copy; 2017 Rockwell Automation</p>
+</div><!-- /.login-box-body -->
+
+<script src="~/Scripts/account/login.js"></script>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            bindLoginPageEvent();
+        });
+
+    </script>
+}

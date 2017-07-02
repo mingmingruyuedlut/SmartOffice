@@ -1,0 +1,91 @@
+﻿@using RASmartOffice.Core.Models
+@using RASmartOffice.Core.Enums
+
+@{
+    LoginUser loginUser = (LoginUser)Session["CurrentLoginUser"];
+    string displayName = loginUser != null ? loginUser.UserName : "Guster";
+
+    string currentPageUrl = Request.Url.AbsoluteUri;
+    string accountSettingTreeClass = (currentPageUrl.Contains("PersonalInformation") || currentPageUrl.Contains("ChangePassword")) ? "active" : "";
+    string adminManagementTreeClass = currentPageUrl.Contains("MeetingRoomMgmt") ? "active" : "";
+}
+
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="~/images/Lighter.png" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>@displayName</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> online</a>
+            </div>
+        </div>
+
+        <ul class="sidebar-menu">
+            @if (loginUser != null)
+            {
+                <li class="@accountSettingTreeClass treeview">
+                    <a href="/AccountSetting/PersonalInformation">
+                        <i class="fa fa-user"></i><span>Account Setting</span><i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        @if (currentPageUrl.Contains("PersonalInformation"))
+                        {
+                            <li class="active"><a href="/AccountSetting/PersonalInformation"><i class="fa fa-circle-o"></i> Personal Information</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/AccountSetting/PersonalInformation"><i class="fa fa-circle-o"></i> Personal Information</a></li>
+                        }
+                        @if (currentPageUrl.Contains("ChangePassword"))
+                        {
+                            <li class="active"><a href="/AccountSetting/ChangePassword"><i class="fa fa-circle-o"></i> Change Password</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/AccountSetting/ChangePassword"><i class="fa fa-circle-o"></i> Change Password</a></li>
+                        }
+                    </ul>
+                </li>
+
+                if (loginUser.RoleType == RoleType.admin)
+                {
+                    //User management - to do
+                    <li class="@adminManagementTreeClass treeview">
+                        <a href="/MeetingRoom/MeetingRoomMgmt">
+                            <i class="fa fa-calendar"></i><span>Admin Management</span><i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            @if (currentPageUrl.Contains("MeetingRoomMgmt"))
+                            {
+                                <li class="active"><a href="/MeetingRoom/MeetingRoomMgmt"><i class="fa fa-circle-o"></i> Meeting Room</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="/MeetingRoom/MeetingRoomMgmt"><i class="fa fa-circle-o"></i> Meeting Room</a></li>
+                            }
+                        </ul>
+                    </li>
+                }
+            }
+        </ul>
+
+        <ul class="sidebar-menu">
+            <li class="active treeview">
+                <a href="/Home/Index">
+                    <i class="fa fa-calendar"></i><span>Meeting Room Management</span><i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="active"><a href="/Home/Index"><i class="fa fa-circle-o"></i> View All</a></li>
+                </ul>
+                <ul class="treeview-menu">
+                    <li><a href="/MeetingRoomBooking/MRBMgmt"><i class="fa fa-circle-o"></i> Booking</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </section>
+</aside>

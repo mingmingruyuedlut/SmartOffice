@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RASmartOffice", "RASmartOffice\RASmartOffice.csproj", "{6EF15F57-5B6B-49F2-A638-67C5F03BADCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RASmartOffice.Common", "RASmartOffice.Common\RASmartOffice.Common.csproj", "{3896D873-3770-4A64-9FC4-085935B835F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RASmartOffice.Core", "RASmartOffice.Core\RASmartOffice.Core.csproj", "{591F794B-F3FA-40A8-8404-27F52A610807}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RASmartOffice.Tests", "RASmartOffice.Tests\RASmartOffice.Tests.csproj", "{5B734B24-622D-44AD-9574-63BB744F2D36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EF15F57-5B6B-49F2-A638-67C5F03BADCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EF15F57-5B6B-49F2-A638-67C5F03BADCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EF15F57-5B6B-49F2-A638-67C5F03BADCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EF15F57-5B6B-49F2-A638-67C5F03BADCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3896D873-3770-4A64-9FC4-085935B835F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3896D873-3770-4A64-9FC4-085935B835F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3896D873-3770-4A64-9FC4-085935B835F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3896D873-3770-4A64-9FC4-085935B835F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{591F794B-F3FA-40A8-8404-27F52A610807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{591F794B-F3FA-40A8-8404-27F52A610807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{591F794B-F3FA-40A8-8404-27F52A610807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{591F794B-F3FA-40A8-8404-27F52A610807}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B734B24-622D-44AD-9574-63BB744F2D36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B734B24-622D-44AD-9574-63BB744F2D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B734B24-622D-44AD-9574-63BB744F2D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B734B24-622D-44AD-9574-63BB744F2D36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
